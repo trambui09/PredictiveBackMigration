@@ -37,7 +37,6 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun SheetScreen(
-    onButtonClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val sheetState = rememberModalBottomSheetState()
@@ -61,13 +60,6 @@ fun SheetScreen(
             text = "Screen B",
             fontSize = 42.sp
         )
-        Button(
-            onClick = {
-                onButtonClick()
-            }
-        ) {
-            Text(text = "Next")
-        }
         Button(
             onClick = {
                 scope.launch {

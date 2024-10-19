@@ -25,9 +25,6 @@ data object ScreenA
 @Serializable
 data object ScreenB
 
-@Serializable
-data object ScreenC
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,13 +46,8 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable<ScreenB> {
-                            SheetScreen(
-                                onButtonClick = {
-                                    navController.navigate(ScreenC)
-                                }
-                            )
+                            SheetScreen()
                         }
-
                     }
                 }
             }
