@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.plcoding.predictivebackmigration.screens.DrawerSheetScreen
 import com.plcoding.predictivebackmigration.screens.SheetScreen
 import com.plcoding.predictivebackmigration.screens.TextScreen
 import com.plcoding.predictivebackmigration.ui.theme.PredictiveBackMigrationTheme
@@ -24,6 +25,10 @@ data object ScreenA
 
 @Serializable
 data object ScreenB
+
+@Serializable
+data object ScreenC
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +51,14 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable<ScreenB> {
-                            SheetScreen()
+                            SheetScreen(
+                                onButtonClick = {
+                                    navController.navigate(ScreenC)
+                                }
+                            )
+                        }
+                        composable<ScreenC> {
+                            DrawerSheetScreen()
                         }
                     }
                 }

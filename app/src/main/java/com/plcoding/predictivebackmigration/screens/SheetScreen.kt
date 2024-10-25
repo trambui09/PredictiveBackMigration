@@ -37,6 +37,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun SheetScreen(
+    onButtonClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val sheetState = rememberModalBottomSheetState()
@@ -68,6 +69,13 @@ fun SheetScreen(
             }
         ) {
             Text(text = "Open sheet")
+        }
+        Button(
+            onClick = {
+                onButtonClick()
+            }
+        ) {
+            Text(text = "Next page")
         }
     }
 
